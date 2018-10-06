@@ -1,0 +1,36 @@
+	   LXI SP,FFFF
+
+INIT1:	   LXI H,D600
+INIT2:	   LXI D,D600
+
+LOOP1:	   MVI C,02
+	   MVI A,01
+	   OUT 31
+
+LOOP:	   MOV A,M
+	   OUT 30
+	   INX H
+	   XCHG
+	   DCR C
+	   JNZ LOOP
+
+DELAY:	   LXI B,A2C2
+
+LOOP2:	   DCX B
+	   MOV A,C
+	   ORA B
+	   JNZ LOOP2
+
+	   MVI A,0A
+	   CMP E
+	   JZ CHECK
+	   DCX H
+	   JMP LOOP1
+CHECK:	   MVI A,06
+	   CMP L
+	   JZ INIT1
+	   JMP INIT2
+	   RST 1
+
+
+
