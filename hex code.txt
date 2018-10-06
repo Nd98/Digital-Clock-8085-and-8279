@@ -1,0 +1,11 @@
+Hex Code for 0-9 at location d600 onwards
+fa
+60
+b6
+f4
+6c
+dc
+de
+70
+fe
+7d
